@@ -7,15 +7,29 @@ public class Motorbike extends Vehicle {
      * create two private variables boolean helmetPresent , int currentSpeed
      */
 
+    private boolean helmetPresent;
+    private int currentSpeed;
 
+    /**
+     * Task 4
+     * create a constructor with all attributes as a parameter
+     *
+     * @param model
+     * @param color
+     */
 
 
     /**
      * Task 7
      * create a getter methods for helmetPresent and currentSpeed
      */
+    public boolean isHelmetPresent() {
+        return helmetPresent;
+    }
 
-
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
 
 
     /**
@@ -24,6 +38,12 @@ public class Motorbike extends Vehicle {
      * order of parameters are model, color, helmetPresent, currentSpeed
      */
 
+    public Motorbike(String model, String color, boolean helmetPresent, int currentSpeed) {
+        super(model, color);
+        this.helmetPresent = helmetPresent;
+        this.currentSpeed = currentSpeed;
+
+    }
 
 
 
@@ -40,6 +60,22 @@ public class Motorbike extends Vehicle {
      * return extraFine
      */
 
+    public  int additionalFineForNoHelmet() {
+        int extraFine=0;
+
+        Ticket.getFine(currentSpeed);
+
+        int fine=  Ticket.getFine(currentSpeed);
+
+        if (helmetPresent == false) {
+
+            extraFine= fine + 200;
+
+        }else {
+            extraFine=fine;
+        }
+        return extraFine;
 
 
+    }
 }
